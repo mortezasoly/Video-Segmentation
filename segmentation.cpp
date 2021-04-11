@@ -35,7 +35,7 @@ int main(int argc, char** argv)
 	int frame_width = capture.get(cv::CAP_PROP_FRAME_WIDTH);
 	int frame_height = capture.get(cv::CAP_PROP_FRAME_HEIGHT);
 	VideoWriter video("output.avi", cv::VideoWriter::fourcc('M','J','P','G'), 10, Size(frame_width, frame_height));
-	std::cout << "Eat my shit" << '\n';
+	
 	while (true)
 	{
 		capture >> image;
