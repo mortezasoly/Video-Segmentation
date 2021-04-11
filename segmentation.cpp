@@ -12,10 +12,6 @@
 
 using namespace cv;
 
-std::vector<double> norm_mean = {0.485, 0.456, 0.406};
-
-std::vector<double> norm_std = {0.229, 0.224, 0.225};
-
 
 int main(int argc, char** argv)
 {
@@ -50,9 +46,7 @@ int main(int argc, char** argv)
 		tensor_image[0][0] = tensor_image[0][0].sub(0.485).div(0.229); 
     	tensor_image[0][1] = tensor_image[0][1].sub(0.456).div(0.224);
     	tensor_image[0][2] = tensor_image[0][2].sub(0.406).div(0.225);
-		/*
-		tensor_image = torch::data::transforms::Normalize<>(norm_mean, norm_std)(image_tensor);
-		*/
+		
 		std::vector<torch::jit::IValue> inputs;
 		inputs.push_back(tensor_image);
 		model.eval();
